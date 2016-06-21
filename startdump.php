@@ -1,33 +1,41 @@
 <?php
 
-define('DB_NAME', 'localhost4');
+/** Имя базы данных для WordPress */
+define('DB_NAME', 'u6976011***********');
 
-/** MySQL database username */
-define('DB_USER', 'root');
+/** Имя пользователя MySQL */
+define('DB_USER', 'u69760117********');
 
-/** MySQL database password */
-define('DB_PASSWORD', '');
+/** Пароль к базе данных MySQL */
+define('DB_PASSWORD', 'eMccEKdU8**********');
 
-/** MySQL hostname */
-define('DB_HOST', 'localhost');
+/** Имя сервера MySQL */
+define('DB_HOST', 'mysql.hostinger.com.ua');
 
-/** Database Charset to use in creating database tables. */
-define('DB_CHARSET', 'utf8mb4');
+/** Кодировка базы данных для создания таблиц. */
+define('DB_CHARSET', 'utf8');
 
-/** The Database Collate type. Don't change this if in doubt. */
+/** Схема сопоставления. Не меняйте, если не уверены. */
 define('DB_COLLATE', '');
 
-echo "IMPORT Start";
-//die();
+//////////////////
+die();
+///////////////////
+
 //$db = new PDO(DB_HOST, DB_USER, DB_PASSWORD);
 
 /*$host = 'localhost';
 $db = 'localhost4';
 
 $dsn = "mysql:host=$host;dbname=$db;";*/
+$arr[] = 'wp_productparse.sql';
+$arr[] = 'wp_grouplikeproduct.sql';
+$arr[] = 'grouplikeproductMain.sql';
+$arr[] = 'grouplikeproduct2.sql';
 
-$file_content = file('wp_productparse.sql');
-
+$file_content = file($arr[3]);
+//$file_content = file('wp_productparse.sql.gz');
+echo "IMPORT start";
 $link = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
 $query = "";
 $dot = '.';
